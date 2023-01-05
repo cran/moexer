@@ -2,7 +2,7 @@ Package: moexer
 Type: Package
 Title: Interact with Moscow Exchange Informational and Statistical
         Server ('ISS')
-Version: 0.1.0
+Version: 0.2.0
 Author: Dmitry Zotikov <dmitry.zotikov@ungrund.org>
 Maintainer: Dmitry Zotikov <dmitry.zotikov@ungrund.org>
 Description: This is a thin wrapper around the 'MOEX' 'ISS' REST interface, see
@@ -11,15 +11,14 @@ Description: This is a thin wrapper around the 'MOEX' 'ISS' REST interface, see
 License: GPL-3
 Language: en-GB
 Encoding: UTF-8
-LazyData: true
-RoxygenNote: 7.1.1
-Depends: R (>= 3.5.0)
-Imports: magrittr, glue, purrr, httr, jsonlite, tibble, readr, rlang,
-        stringr, assertthat, cli, dplyr, lubridate
-Suggests: testthat, knitr, rmarkdown, ggplot2
+RoxygenNote: 7.2.3
+Depends: R (>= 4.2.0)
+Imports: glue, purrr, httr, jsonlite, tibble, readr, rlang, stringr,
+        assertthat, cli, dplyr, lubridate, ggplot2
+Suggests: testthat, knitr, rmarkdown
 URL: https://github.com/x1o/moexer
 BugReports: https://github.com/x1o/moexer/issues
 NeedsCompilation: no
-Packaged: 2021-01-27 17:04:16 UTC; xio
+Packaged: 2023-01-05 10:03:34 UTC; xio
 Repository: CRAN
-Date/Publication: 2021-02-01 08:30:03 UTC
+Date/Publication: 2023-01-05 21:30:02 UTC

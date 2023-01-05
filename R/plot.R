@@ -1,17 +1,18 @@
 #' Plot Candles
 #'
-#' @param candles_df A candles tibble as returned by [get_candles]
+#' @param x A candles tibble as returned by [get_candles()]
+#' @param ... For compatibility with the generic; ignored
 #'
 #' @return A `ggplot2` object.
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#' get_candles(secid = 'SBER', from = '2020-01-01') %>%
-#'     plot_candles()
+#' get_candles(secid = 'SBER', from = '2020-01-01') |>
+#'     plot()
 #' }
-plot_candles <- function(candles_df) {
-    candles_df %>%
+plot.MoexCandles <- function(x, ...) {
+    x |>
         mutate(
             direction = factor(case_when(
                 open <= close ~
@@ -19,10 +20,10 @@ plot_candles <- function(candles_df) {
                 TRUE ~
                     'down'
             ))
-        ) %>%
-        ggplot2::ggplot() +
-        ggplot2::geom_boxplot(
-            ggplot2::aes(
+        ) |>
+        ggplot() +
+        geom_boxplot(
+            aes(
                 x = begin,
                 lower = pmin(open, close),
                 upper = pmax(open, close),
@@ -35,5 +36,5 @@ plot_candles <- function(candles_df) {
             stat = 'identity',
             fatten = 0
         ) +
-        ggplot2::facet_grid(cols = vars(secid))
+        facet_grid(cols = vars(secid))
 }
